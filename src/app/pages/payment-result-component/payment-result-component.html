@@ -1,0 +1,51 @@
+<mat-card class="result-card">
+  <mat-card-content>
+
+    <mat-icon
+      class="status-icon"
+      [ngClass]="payment.status.toLowerCase()">
+
+      <ng-container [ngSwitch]="payment.status">
+        <span *ngSwitchCase="'Success'">check_circle</span>
+        <span *ngSwitchCase="'Failed'">error</span>
+        <span *ngSwitchDefault>hourglass_top</span>
+      </ng-container>
+
+    </mat-icon>
+
+    <h2>
+      <ng-container [ngSwitch]="payment.status">
+        <span *ngSwitchCase="'Success'">Payment Successful</span>
+        <span *ngSwitchCase="'Failed'">Payment Failed</span>
+        <span *ngSwitchDefault>Payment Processing</span>
+      </ng-container>
+    </h2>
+
+    <p class="status-message" *ngIf="payment.status === 'Pending'">
+      We are waiting for payment confirmation.<br>
+      Please do not refresh this page.
+    </p>
+
+    <div class="info">
+      <p><strong>Order:</strong> {{ payment.orderNumber }}</p>
+      <p><strong>Transaction:</strong> {{ payment.transactionNumber }}</p>
+      <p><strong>Amount:</strong> ₹ {{ payment.amount }}</p>
+      <p>
+        <strong>Status:</strong>
+        <span class="status-text"
+              [ngClass]="payment.status.toLowerCase()">
+          {{ payment.status }}
+        </span>
+      </p>
+    </div>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="goToTransactions()"
+      [disabled]="payment.status === 'Pending'">
+      View Transactions
+    </button>
+
+  </mat-card-content>
+</mat-card>

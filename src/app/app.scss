@@ -4,9 +4,17 @@
   z-index: 1000;
 }
 
-.title {
-  font-size: 18px;
+// .title {
+//   font-size: 18px;
+//   font-weight: 600;
+// }
+
+.app-title {
   font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
 
 .app-container {
@@ -16,5 +24,4 @@
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  
 }

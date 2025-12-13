@@ -1,0 +1,20 @@
+.payment-card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

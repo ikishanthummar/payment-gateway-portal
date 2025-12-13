@@ -13,11 +13,21 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { CreatePaymentComponent } from './pages/create-payment-component/create-payment-component';
+import { PaymentProcessingComponent } from './pages/payment-processing-component/payment-processing-component';
+import { PaymentResultComponent } from './pages/payment-result-component/payment-result-component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     App,
-    TransactionsComponent
+    TransactionsComponent,
+    CreatePaymentComponent,
+    PaymentProcessingComponent,
+    PaymentResultComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,11 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

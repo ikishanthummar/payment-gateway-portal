@@ -12,7 +12,7 @@ export class TransactionService {
   private readonly baseUrl =
     `${environment.apiBaseUrl}/transactions`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getPaged(
     page: number,
@@ -32,6 +32,12 @@ export class TransactionService {
     return this.http.get<PagedResponse<Transaction>>(
       this.baseUrl,
       { params }
+    );
+  }
+
+  getByTransactionNumber(txn: string) {
+    return this.http.get<Transaction>(
+      `${this.baseUrl}/by-transaction-number/${txn}`
     );
   }
 }

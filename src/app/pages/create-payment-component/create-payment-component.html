@@ -1,0 +1,33 @@
+<mat-card class="payment-card">
+    <mat-card-title>Create Payment</mat-card-title>
+
+    <mat-card-content>
+        <form class="payment-form">
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Amount</mat-label>
+                <input matInput type="number" [(ngModel)]="amount" name="amount">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Provider</mat-label>
+                <mat-select [(ngModel)]="providerReference">
+                    <mat-option *ngFor="let p of providers" [value]="p.name">
+                        {{ p.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <div class="action-row">
+                <button mat-raised-button color="primary" (click)="payNow()" [disabled]="loading">
+                    Pay Now
+                </button>
+
+                <mat-progress-spinner *ngIf="loading" diameter="28" mode="indeterminate">
+                </mat-progress-spinner>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

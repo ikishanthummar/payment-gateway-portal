@@ -1,0 +1,23 @@
+<mat-card class="processing-card">
+  <mat-card-content>
+
+    <mat-progress-spinner
+      mode="indeterminate"
+      diameter="48">
+    </mat-progress-spinner>
+
+    <h2>Processing Payment</h2>
+
+    <div class="info">
+      <p><strong>Order:</strong> {{ payment.orderNumber }}</p>
+      <p><strong>Transaction:</strong> {{ payment.transactionNumber }}</p>
+      <p><strong>Amount:</strong> ₹ {{ payment.amount }}</p>
+    </div>
+
+    <p class="hint">
+      Please wait while we confirm your payment…
+    </p>
+
+  </mat-card-content>
+</mat-card>
+
