@@ -6,7 +6,6 @@
       <mat-label>Search</mat-label>
       <input
         matInput
-        placeholder="Search"
         [(ngModel)]="search"
         (keyup)="onSearch()" />
     </mat-form-field>
@@ -73,7 +72,7 @@
           Updated
         </th>
         <td mat-cell *matCellDef="let t">
-          {{ t.updatedOn | date:'short' }}
+          {{ t.updatedOn ? (t.updatedOn | date:'short') : 'N/A' }}
         </td>
       </ng-container>
 

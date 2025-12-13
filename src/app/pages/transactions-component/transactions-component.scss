@@ -90,14 +90,30 @@ mat-paginator {
 }
 
 .search-box {
-  width: 220px;         
+  width: 260px;
 }
 
-.search-box .mat-mdc-text-field-wrapper {
-  height: 40px;         
+.search-box .mat-mdc-form-field-flex {
+  height: 28px !important;
+  align-items: center;
+}
+
+.search-box .mat-mdc-form-field-infix {
+  padding: 2px 6px !important;
+  min-height: 0 !important;
 }
 
 .search-box input {
-  padding: 8px 10px;
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 16px;
 }
+
+.search-box .mdc-notched-outline {
+  --mdc-outlined-text-field-container-height: 30px;
+}
+
+.search-box .mat-mdc-floating-label {
+  top: 14px;
+  font-size: 12px;
+}
+
