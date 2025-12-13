@@ -4,6 +4,11 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { TransactionsComponent } from './pages/transactions-component/transactions-component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -12,8 +17,13 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+  MatPaginatorModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Transaction } from '../../models/transaction/transaction.model';
 import { TransactionService } from '../../services/transaction/transaction-service';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-transactions-component',
@@ -8,20 +9,33 @@ import { TransactionService } from '../../services/transaction/transaction-servi
   templateUrl: './transactions-component.html',
   styleUrl: './transactions-component.scss',
 })
-export class TransactionsComponent implements OnInit  {
+export class TransactionsComponent implements OnInit {
+  displayedColumns: string[] = [
+    // 'id',
+    'transactionNumber',
+    'orderNumber',
+    'providerReference',
+    'amount',
+    'status',
+    'createdOn',
+    'updatedOn'
+  ];
+
+
   transactions: Transaction[] = [];
 
   page = 1;
-  pageSize = 5;
-  totalCount = 0;
-
+  pageSize = 10;
+  totalRecords = 0;
   search = '';
   sortBy = 'createdOn';
   isDescending = true;
 
   loading = false;
 
-  constructor(private transactionService: TransactionService) {}
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(private transactionService: TransactionService) { }
 
   ngOnInit(): void {
     this.load();
@@ -39,7 +53,7 @@ export class TransactionsComponent implements OnInit  {
     ).subscribe({
       next: res => {
         this.transactions = res.items;
-        this.totalCount = res.totalCount;
+        this.totalRecords = res.totalRecords;
         this.loading = false;
       },
       error: err => {
@@ -49,9 +63,9 @@ export class TransactionsComponent implements OnInit  {
     });
   }
 
-  onPageChange(page: number, pageSize: number) {
-    this.page = page;
-    this.pageSize = pageSize;
+ onPageChange(event: PageEvent): void {
+    this.page = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
     this.load();
   }
 

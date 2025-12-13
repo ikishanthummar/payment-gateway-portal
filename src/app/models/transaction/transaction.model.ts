@@ -1,8 +1,11 @@
 export interface Transaction {
-  id: string;
-  orderId: string;
+  id: string;                
+  orderId: string;            
+  transactionNumber: string;
+  orderNumber: string;
   providerReference: string;
+  status: 'Success' | 'Failed' | 'Pending';
   amount: number;
-  status: 'Pending' | 'Success' | 'Failed';
-  updatedOn: string | null;
+  createdOn: string;    
+  updatedOn: string;        
 }

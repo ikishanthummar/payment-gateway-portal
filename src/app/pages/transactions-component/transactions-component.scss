@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  background: #f5f7fb;
+}
+
+mat-card {
+  border-radius: 12px;
+}
+
+mat-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 12px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.full-width-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th.mat-header-cell {
+  font-weight: 600;
+  color: #555;
+  background: #fafafa;
+}
+
+td.mat-cell {
+  padding: 12px 8px;
+}
+
+tr.mat-row:hover {
+  background: #f1f3f8;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.failed {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.status.pending {
+  background: #fff8e1;
+  color: #f9a825;
+}
+
+mat-paginator {
+  margin-top: 16px;
+}

@@ -1,6 +1,6 @@
 export interface PagedResponse<T> {
   items: T[];
-  totalCount: number;
+  totalRecords: number;
   page: number;
   pageSize: number;
 }
