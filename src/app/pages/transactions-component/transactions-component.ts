@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Transaction } from '../../models/transaction/transaction.model';
 import { TransactionService } from '../../services/transaction/transaction-service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-transactions-component',
@@ -10,8 +11,8 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
   styleUrl: './transactions-component.scss',
 })
 export class TransactionsComponent implements OnInit {
+
   displayedColumns: string[] = [
-    // 'id',
     'transactionNumber',
     'orderNumber',
     'providerReference',
@@ -21,12 +22,12 @@ export class TransactionsComponent implements OnInit {
     'updatedOn'
   ];
 
-
   transactions: Transaction[] = [];
 
   page = 1;
   pageSize = 10;
   totalRecords = 0;
+
   search = '';
   sortBy = 'createdOn';
   isDescending = true;
@@ -34,8 +35,9 @@ export class TransactionsComponent implements OnInit {
   loading = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private transactionService: TransactionService) { }
+  constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
     this.load();
@@ -56,17 +58,33 @@ export class TransactionsComponent implements OnInit {
         this.totalRecords = res.totalRecords;
         this.loading = false;
       },
-      error: err => {
-        console.error(err);
+      error: () => {
         this.loading = false;
       }
     });
   }
 
- onPageChange(event: PageEvent): void {
+  onPageChange(event: PageEvent): void {
     this.page = event.pageIndex + 1;
     this.pageSize = event.pageSize;
     this.load();
   }
 
+  onSearch(): void {
+    this.page = 1;
+    this.paginator.firstPage();
+    this.load();
+  }
+
+  onSort(sort: Sort): void {
+    console.log('SORT EVENT:', sort);
+    if (!sort.direction) return;
+
+    this.sortBy = sort.active;
+    this.isDescending = sort.direction === 'desc';
+
+    this.page = 1;
+    this.paginator.firstPage();
+    this.load();
+  }
 }

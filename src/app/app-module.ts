@@ -9,6 +9,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatCardModule,
     MatProgressSpinnerModule,
-  MatPaginatorModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
