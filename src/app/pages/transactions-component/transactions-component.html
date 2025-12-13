@@ -1,0 +1,28 @@
+<h2>Transactions</h2>
+
+<table border="1" width="100%" *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Provider Ref</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Updated On</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let t of transactions">
+      <td>{{ t.orderId }}</td>
+      <td>{{ t.providerReference }}</td>
+      <td>{{ t.amount }}</td>
+      <td>{{ t.status }}</td>
+      <td>{{ t.updatedOn | date:'short' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="loading">
+  Loading transactions...
+</div>
+
