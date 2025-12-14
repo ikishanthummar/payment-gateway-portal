@@ -15,6 +15,28 @@
 
 .action-row {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 16px;
+}
+
+mat-card {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+mat-card-content {
+  width: 100%;
+}
+
+mat-card-title{
+  font-size: 24px;
+  font-weight: 600;
+  color: #424344;
+  margin-bottom: 16px;
 }
