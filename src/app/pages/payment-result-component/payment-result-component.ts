@@ -15,6 +15,9 @@ export class PaymentResultComponent implements OnInit, OnDestroy {
   payment!: Transaction;
   pollingSub!: Subscription;
 
+  elapsedSeconds = 0;
+  timerSub!: Subscription;
+
   constructor(
     private router: Router,
     private transactionService: TransactionService
@@ -28,6 +31,10 @@ export class PaymentResultComponent implements OnInit, OnDestroy {
       this.router.navigate(['/transactions']);
       return;
     }
+
+    this.timerSub = interval(1000).subscribe(() => {
+      this.elapsedSeconds++;
+    });
 
     this.pollingSub = interval(3000).subscribe(() => {
       this.transactionService
@@ -48,6 +55,7 @@ export class PaymentResultComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.pollingSub?.unsubscribe();
+    this.timerSub?.unsubscribe();
   }
 
   goToTransactions(): void {

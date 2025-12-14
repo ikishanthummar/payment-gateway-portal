@@ -1,18 +1,25 @@
 <mat-card>
   <mat-card-content>
-    <mat-icon
-      class="status-icon"
-      [ngClass]="payment.status.toLowerCase()">
+    <div class="status-icon-wrapper">
 
-      <ng-container [ngSwitch]="payment.status">
-        <span *ngSwitchCase="'Success'">check_circle</span>
-        <span *ngSwitchCase="'Failed'">error</span>
-        <span *ngSwitchDefault>hourglass_top</span>
-      </ng-container>
+      <div *ngIf="payment.status === 'Pending'; else statusIcon" class="pending-timer">
+        {{ elapsedSeconds }}s
+      </div>
 
-    </mat-icon>
+      <ng-template #statusIcon>
+        <mat-icon class="status-icon" [ngClass]="payment.status.toLowerCase()">
 
-    <h2>
+          <ng-container [ngSwitch]="payment.status">
+            <span *ngSwitchCase="'Success'">check_circle</span>
+            <span *ngSwitchCase="'Failed'">error</span>
+          </ng-container>
+
+        </mat-icon>
+      </ng-template>
+
+    </div>
+
+    <h2 [ngClass]="payment.status.toLowerCase()">
       <ng-container [ngSwitch]="payment.status">
         <span *ngSwitchCase="'Success'">Payment Successful</span>
         <span *ngSwitchCase="'Failed'">Payment Failed</span>
@@ -31,18 +38,13 @@
       <p><strong>Amount:</strong> ₹ {{ payment.amount }}</p>
       <p>
         <strong>Status:</strong>
-        <span class="status-text"
-              [ngClass]="payment.status.toLowerCase()">
+        <span class="status-text" [ngClass]="payment.status.toLowerCase()">
           {{ payment.status }}
         </span>
       </p>
     </div>
 
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="goToTransactions()"
-      [disabled]="payment.status === 'Pending'">
+    <button mat-raised-button color="primary" (click)="goToTransactions()" [disabled]="payment.status === 'Pending'">
       View Transactions
     </button>
 
