@@ -50,6 +50,7 @@ export class CreatePaymentComponent implements OnInit {
   }
 
   payNow(): void {
+    this.amount = Math.max(1, Number(this.amount) || 0);
     if (this.loading || this.isNavigated) {
       return;
     }
@@ -84,4 +85,12 @@ export class CreatePaymentComponent implements OnInit {
       }
     });
   }
+
+  blockInvalidKeys(event: KeyboardEvent) {
+    const invalidKeys = ['e', 'E', '+', '-', ','];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
 }

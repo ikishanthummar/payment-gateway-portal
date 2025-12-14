@@ -1,12 +1,13 @@
 <mat-card class="payment-card">
-    <mat-card-title >Initiate Payment</mat-card-title>
+    <mat-card-title>Create Payment</mat-card-title>
 
     <mat-card-content>
         <form class="payment-form">
 
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Amount</mat-label>
-                <input matInput type="number" [(ngModel)]="amount" name="amount">
+                <input matInput type="number" name="amount" [(ngModel)]="amount" min="1" step="1" inputmode="decimal"
+                    pattern="^[0-9]*\.?[0-9]*$" (keydown)="blockInvalidKeys($event)" />
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="full-width">
