@@ -1,7 +1,20 @@
-.result-card {
-  max-width: 500px;
-  margin: 40px auto;
+mat-card {
+  height: 50vh;
+  width: 50vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 40vw;
+  font-size: larger;
 }
 
 .status-icon {
@@ -21,14 +34,9 @@
   color: #f9a825;
 }
 
-.status-message {
-  margin: 12px 0;
-  color: #666;
-  font-size: 14px;
-}
-
 .info {
   margin: 16px 0;
+  width: 100%;
   text-align: left;
 }
 

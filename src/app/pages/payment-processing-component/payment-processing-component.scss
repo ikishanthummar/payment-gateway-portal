@@ -1,12 +1,20 @@
 .processing-card {
-  max-width: 500px;
-  margin: 40px auto;
-  text-align: center;
+  height: 50vh;
+  width: 50vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.info {
-  margin-top: 16px;
-  text-align: left;
+.processing-card mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  gap: 12px;
 }
 
 .hint {
