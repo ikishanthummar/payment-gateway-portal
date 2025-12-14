@@ -33,11 +33,13 @@ export class TransactionsComponent implements OnInit {
   isDescending = true;
 
   loading = false;
+  hasError = false;
+  errorMessage = '';
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator?: MatPaginator;
+  @ViewChild(MatSort) sort?: MatSort;
 
-  constructor(private transactionService: TransactionService) {}
+  constructor(private transactionService: TransactionService) { }
 
   ngOnInit(): void {
     this.load();
@@ -45,6 +47,8 @@ export class TransactionsComponent implements OnInit {
 
   load(): void {
     this.loading = true;
+    this.hasError = false;
+    this.errorMessage = '';
 
     this.transactionService.getPaged(
       this.page,
@@ -60,6 +64,10 @@ export class TransactionsComponent implements OnInit {
       },
       error: () => {
         this.loading = false;
+        this.transactions = [];
+        this.totalRecords = 0;
+        this.hasError = true;
+        this.errorMessage = 'Server not reachable. Please try again later.';
       }
     });
   }
@@ -72,19 +80,26 @@ export class TransactionsComponent implements OnInit {
 
   onSearch(): void {
     this.page = 1;
-    this.paginator.firstPage();
+
+    if (this.paginator) {
+      this.paginator.firstPage();
+    }
+
     this.load();
   }
 
   onSort(sort: Sort): void {
-    console.log('SORT EVENT:', sort);
     if (!sort.direction) return;
 
     this.sortBy = sort.active;
     this.isDescending = sort.direction === 'desc';
-
     this.page = 1;
-    this.paginator.firstPage();
+
+    if (this.paginator) {
+      this.paginator.firstPage();
+    }
+
     this.load();
   }
+
 }
