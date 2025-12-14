@@ -1,12 +1,45 @@
 .payment-card {
-  max-width: 500px;
+  max-width: 50vw;
   margin: 0 auto;
+}
+
+mat-card {
+  height: 50vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(180deg, #f8fafc, #eef2f7);
+}
+
+mat-card-content {
+  width: 100%;
+  max-width: 420px;
+
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 24px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+mat-card-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2937;
+
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .payment-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .full-width {
@@ -17,26 +50,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
 }
 
-mat-card {
-  height: 50vh;
-  width: 100vw;
-  display: flex;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-}
-
-mat-card-content {
-  width: 100%;
-}
-
-mat-card-title{
-  font-size: 24px;
+button[mat-raised-button] {
+  min-width: 160px;
+  height: 44px;
   font-weight: 600;
-  color: #424344;
-  margin-bottom: 16px;
+}
+
+mat-progress-spinner {
+  margin-left: 8px;
 }
