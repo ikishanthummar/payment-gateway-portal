@@ -6,8 +6,11 @@
 
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Amount</mat-label>
-                <input matInput type="number" name="amount" [(ngModel)]="amount" min="1" step="1" inputmode="decimal"
-                    pattern="^[0-9]*\.?[0-9]*$" (keydown)="blockInvalidKeys($event)" />
+                <input matInput type="number" name="amount" [(ngModel)]="amount" #amountCtrl="ngModel" required min="1"
+                    step="0.01" inputmode="decimal" (keydown)="blockInvalidKeys($event)" />
+                <mat-error *ngIf="amountCtrl.invalid && amountCtrl.touched">
+                    Amount is required and must be greater than 0
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="full-width">
@@ -21,7 +24,7 @@
 
 
             <div class="action-row">
-                <button mat-raised-button color="primary" (click)="payNow()" [disabled]="loading">
+                <button mat-raised-button color="primary" (click)="payNow()" [disabled]="loading || amountCtrl.invalid">
                     Pay Now
                 </button>
 
