@@ -1,59 +1,39 @@
-# PaymentGatewayPortal
+# Payment Gateway Portal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+A modern **Angular-based frontend portal** for managing and interacting with a payment gateway system.  
+This project was generated using **Angular CLI v20.3.10** and serves as a clean, scalable UI foundation for payment processing workflows.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🧠 What Is This?
 
-```bash
-ng serve
-```
+This repository contains the **Angular client application** for a payment gateway portal.  
+It’s designed to be the frontend interface where users (merchants/admins) can interact with payment-related features such as initiating transactions, checking status, viewing history, and potentially integrating multiple payment providers (future scope).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Although the backend payment APIs are **not included here**, this Angular app can be connected to any RESTful payment gateway service of your choice.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🚀 Features
 
-```bash
-ng generate component component-name
-```
+- Angular v20+ based structure
+- Modular, component-driven UI
+- Development server with live reload
+- Built-in scaffolding support for fast development
+- Ready for integration with backend APIs
+- Unit & end-to-end testing support
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🛠️ Prerequisites
 
-## Building
+Before you begin, make sure you have the following installed:
 
-To build the project run:
+- **Node.js** (v18+ recommended)
+- **npm** (v8+ recommended)
+- **Angular CLI**
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Install Angular CLI globally if you don’t have it:
 
 ```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+npm install -g @angular/cli
